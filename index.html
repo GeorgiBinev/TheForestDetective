@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Forest Detective</title>
+    
+    <style>
+        /* Reset some default styles */
+        body,
+        h1,
+        h2,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            color: #B4A5A5
+        }
+
+        /* Set a background color and other styling for the body */
+        body {
+            background-color: #151515;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Add a black background color to the top navigation */
+.navbar {
+  background-color: #301B3F;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+  float: left;
+  color: #B4A5A5;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.navbar a:hover {
+  background-color: #B4A5A5;
+  color: #301B3F;
+}
+
+/* Add a color to the active/current link */
+.navbar a.active {
+  background-color: #3C415C;
+  color: #301B3F;
+}
+
+/* Create a right-aligned (split) link inside the navigation bar */
+.navbar a.split {
+  float: right;
+  background-color: #B4A5A5;
+  color: #301B3F;
+  opacity: 0.75;
+}
+        
+
+        /* Style the content section */
+        .content {
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
+            margin: 2.5rem
+        }
+
+        /* Add this style for the social buttons */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .social-button {
+            width: 50px;
+            height: 50px;
+            background-color: #3C415C;
+            border: none;
+            border-radius: 40%;
+            overflow: hidden;
+            margin: 10px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .social-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Add this style for the hover effect */
+        .social-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+        }
+
+        /* Style the sections */
+        section {
+            background-color: #301B3F;
+            padding: 30px;
+        }
+        
+        /* CSS for the services grid */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        justify-content: center; /* Align the grid content to the center */
+
+    }
+
+    .service {
+        background-color: #301B3F;
+        padding: 20px;
+        border-radius: 5px;
+        color: #B4A5A5;
+        text-align: center; /* Center align text in services */
+    }
+
+    .service h3 {
+        margin-bottom: 10px;
+        color: #3C415C;
+    }
+
+    .service p {
+        margin-bottom: 15px;
+    }
+
+    .read-more {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #3C415C;
+        color: #B4A5A5;
+        text-decoration: none;
+        border-radius: 3px;
+        transition: background-color 0.3s;
+    }
+
+    .read-more:hover {
+        background-color: #301B3F;
+    }
+    
+    
+    /* Styling for the QA section */
+    
+    .qa-container {
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .question {
+        background-color: #301B3F;
+        padding: 15px;
+        border-radius: 5px;
+        color: #B4A5A5;
+        flex: 0 0 45%; /* Adjust the width as needed */
+    }
+
+    .question-label {
+        cursor: pointer;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .answer {
+        background-color: #3C415C;
+        border: 3px solid #2C68ED;
+        padding: 10px;
+        border-radius: 5px;
+        display: none;
+        color: #B4A5A5;
+    }
+
+    .answer-toggle {
+        display: none;
+    }
+
+    .answer-toggle:checked + .question-label + .answer {
+        display: block;
+    }
+        
+        /* Styling specifically for the contact form */
+
+.contact-form-section {
+    background-color: #301B3F;
+    padding: 20px;
+    color: #B4A5A5;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+.contact-form .form-group {
+    margin-bottom: 15px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #B4A5A5;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #B4A5A5;
+    border-radius: 4px;
+    color: #B4A5A5;
+    background-color: #301B3F;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 10px 10px;
+    background-color: #3C415C;
+    color: #B4A5A5;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 1.5s;
+}
+
+.contact-form button:hover {
+    background-color: #301B3F;
+}
+        
+         /* Footer styling */
+        footer {
+            background-color: #3C415C;
+            color: #B4A5A5;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Typewriter effect for the footer text */
+        #footer-text {
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+    	
+        <a class="active" href="#home">Home</a>
+  		<a href="#services">Services</a>
+  		<a href="#qa">Q&A</a>
+  		<a href="#contact" class="split">Contact</a>
+
+    </div>
+
+    <div class="content">
+
+        <section id="home">
+            <!-- Home section content -->
+
+            <h3>WELCOME!</h3>
+            <h1>I'M <span style="color: #3C415C;">Garga the private detective of the forest</span></h1>
+            <p>I am Garga, a raven of the ancient forests, adorned with feathers as dark as the starless midnight sky. My eyes, sharp as polished onyx, gleam with the secrets of the woods. I am the enigmatic private detective of the forest. Cloaked in inky feathers that shimmer under the dappled sunlight filtering through the canopy, my presence is a symbol of insight and mystery. With eyes as sharp as obsidian, I navigate the labyrinth of the woodland, uncovering truths concealed within the whispers of leaves and the footprints in the underbrush.</p>
+            <p>I am a master of deduction, piecing together the fragments of a puzzle with a meticulous eye for detail. My intellect, honed by the secrets of the forest, allows me to discern the truth from the tangled web of lies and uncertainties. Every rustle of a leaf and every chirp of a hidden bird speaks to me, unraveling the unsolved mysteries that cloak the woods.</p>
+            <p>I operate with discretion and an air of intriguing mystique, navigating the twists and turns of forest life with an unwavering determination. My method is a blend of logic, observation, and an innate understanding of the forest's intricate ecosystem.</p>
+
+            <div class="social-buttons">
+                <button class="social-button"><img src="https://www.svgrepo.com/show/506517/linkedin.svg" alt="LinkedIn"></button>
+                <button class="social-button"><img src="https://www.svgrepo.com/show/358411/whatsapp-alt.svg" alt="WhatsApp"></button>
+                <button class="social-button"><img src="https://www.svgrepo.com/show/447118/telegram-fill.svg" alt="Telegram"></button>
+                <button class="social-button"><img src="https://www.svgrepo.com/show/473621/gmail.svg" alt="Gmail"></button>
+                <button class="social-button"><img src="https://www.svgrepo.com/show/512889/snapchat-136.svg" alt="Snapchat"></button>
+            </div>
+
+        </section>
+
+        <section id="services">
+            <!-- DЕTЕCTIVЕ SERVICES section content -->
+            <h2>DЕTЕCTIVЕ SERVICES</h2>
+
+            <p>As the foremost detective of these ancient woods, I serve as a guide to those who seek justice and clarity.<br> My clients come to me with their enigmas, knowing that within my vast repository of forest wisdom lies the solution to any conundrum, be it a missing creature, a theft among the squirrels, or the inexplicable disturbances among the trees.</p>
+            
+            <p>I have an enormous network of informants and contacts in the public community that could not be explained in this presentation for compelling reasons. It is the basis for the rapid and professional solution of client cases. </p>
+            
+            <hr>
+
+    <div class="services-grid">
+        <div class="service">
+            <h3>COLLECTION OF EVIDENCE</h3>
+            <p>Collection of evidence and information as evidence in court legal proceedings and issuance of official documents and reports with legal relevance according to the requirements set out by the judicial court system.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <div class="service">
+            <h3>UNDERCOVER SURVEILLANCE</h3>
+            <p>Covert observation and monitoring to gather information about a subject or location discreetly for investigative purposes.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <div class="service">
+            <h3>MYSTERY SOLVING</h3>
+            <p>Deductive reasoning and detailed investigation to solve mysteries and enigmas prevailing in the forest ecosystem.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <div class="service">
+            <h3>FORENSIC ANALYSIS</h3>
+            <p>Examination and analysis of physical evidence to uncover facts and solve intricate cases using scientific methods.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <div class="service">
+            <h3>RISK ASSESSMENT</h3>
+            <p>Assessment of potential risks and threats within the forest environment and providing strategies for mitigation and prevention.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <div class="service">
+            <h3>CLIENT ADVOCACY</h3>
+            <p>Acting as a representative and advocate for clients during investigations, ensuring their interests and rights are protected.</p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+    </div>
+</section>
+
+       <section id="qa">
+    <!-- QA section content -->
+    <h2>Questions & Answers</h2>
+
+    <div class="qa-container">
+        <div class="question">
+            <input type="checkbox" id="question1" class="answer-toggle">
+            <label for="question1" class="question-label">What kind of mysteries do you solve?</label>
+            <div class="answer">
+                <p>I solve a wide array of forest-related mysteries ranging from missing creatures, theft among the woodland creatures, unexplained disturbances in the woods, to cryptic occurrences within the forest ecosystem.</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <input type="checkbox" id="question2" class="answer-toggle">
+            <label for="question2" class="question-label">How do you approach solving a case?</label>
+            <div class="answer">
+                <p>I approach each case with a combination of logical deduction, keen observation, and a deep understanding of the forest's ecosystem. I analyze clues, listen to the whispers of the woods, and follow a methodical process to unravel mysteries.</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <input type="checkbox" id="question3" class="answer-toggle">
+            <label for="question3" class="question-label">Can you provide professional references?</label>
+            <div class="answer">
+                <p>Due to the discreet nature of my work, professional references are held in the strictest confidence and only revealed upon request to potential clients.</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <input type="checkbox" id="question4" class="answer-toggle">
+            <label for="question4" class="question-label">How can I contact you for a case?</label>
+            <div class="answer">
+                <p>You can reach me through the 'Contact' section on this site. Please fill out the form provided, and I'll get in touch with you as soon as possible.</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <input type="checkbox" id="question5" class="answer-toggle">
+            <label for="question5" class="question-label">Do you work alone or in a team?</label>
+            <div class="answer">
+                <p>I prefer to work alone as it allows me to focus better and notice the minute details. However, for some complex cases, I might seek assistance from trusted forest allies.</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <input type="checkbox" id="question6" class="answer-toggle">
+            <label for="question6" class="question-label">What makes you a unique forest detective?</label>
+            <div class="answer">
+                <p>My unique perspective, honed by years of understanding the forest's ecosystem, and an unmatched ability to decipher the secrets hidden within the woods, make me a distinctive detective.</p>
+            </div>
+        </div>
+
+        <div class="question">
+            <input type="checkbox" id="question7" class="answer-toggle">
+            <label for="question7" class="question-label">How long have you been a forest detective?</label>
+            <div class="answer">
+                <p>I've been unraveling mysteries in the woods for over a decade, continuously learning and evolving to become the most knowledgeable forest detective.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="contact" class="contact-form-section">
+        
+        	<h2 style="text-align: center;">Contact</h2>
+            <h4 style="text-align: center; font-style: italic;">Don't wait, let the secrets of the forest be unraveled!</h4>
+    
+   			<form action="#" method="post" class="contact-form">
+        		<div class="form-group">
+            		<label for="name">Name</label>
+            		<input type="text" id="name" name="name" required>
+        		</div>
+        		<div class="form-group">
+            		<label for="email">Email</label>
+            		<input type="email" id="email" name="email" required>
+        		</div>
+        		<div class="form-group">
+            		<label for="message">Message</label>
+            		<textarea id="message" name="message" rows="5" required></textarea>
+        		</div>
+        		<button type="submit">Send</button>
+    		</form>
+            
+    		<p style="text-align: center;">If you're an animal seeking help or guidance in solving forest mysteries or in need of detective services, I, Garga, the enigmatic raven detective, am here to assist.<br> Whether it's a missing creature, a theft among the squirrels, or inexplicable disturbances among the trees, I'm the guide to unveil the truth and restore harmony in the woods.</p>
+</section>
+
+    </div>
+    
+    <footer>
+    <p id="footer-text">&copy; The Forest Detectiv <span style="color: #301B3F;">Garga</span> Project - Georgi Binev 2021</p>
+</footer>
+
+</body>
+
+</html>
+
+
